@@ -1,15 +1,6 @@
-/* ================================================================
-   LEGEND HIGH — STUDENT PORTAL
-   style.css
-   Color Scheme: Deep Blue (#003F7F) + Gold/Yellow (#F5B800) + White
-================================================================ */
-
-/* ---- Google Fonts (Poppins) ---- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap');
 
-/* ================================================================
-   CSS VARIABLES
-================================================================ */
+/*CSS VARIABLES*/
 :root {
   --blue-dark:    #002F6C;
   --blue-main:    #003F7F;
@@ -33,9 +24,6 @@
   --radius-xl:    24px;
 }
 
-/* ================================================================
-   RESET & BASE
-================================================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
@@ -55,9 +43,7 @@ a { text-decoration: none; }
 ::-webkit-scrollbar-track { background: var(--blue-pale); }
 ::-webkit-scrollbar-thumb { background: var(--blue-mid); border-radius: 4px; }
 
-/* ================================================================
-   PRE-LOADER (#13)
-================================================================ */
+/* PRELOADER */
 #preloader {
   position: fixed; inset: 0;
   background: var(--blue-dark);
@@ -116,9 +102,7 @@ a { text-decoration: none; }
 }
 @keyframes blink { 0%,100%{ opacity:.3 } 50%{ opacity:1 } }
 
-/* ================================================================
-   NAVBAR + SCROLLSPY (#9)
-================================================================ */
+/* NAVBAR/SCROLLSPY */
 #mainNav {
   background: var(--blue-dark) !important;
   padding: 0;
@@ -192,9 +176,7 @@ a { text-decoration: none; }
   border: 1.5px solid var(--blue-dark);
 }
 
-/* ================================================================
-   OFFCANVAS (#7)
-================================================================ */
+/* OFFCANVAS */
 .offcanvas {
   background: var(--blue-dark) !important;
   border-right: none !important;
@@ -255,9 +237,7 @@ a { text-decoration: none; }
 .sidebar-link:hover { background: rgba(245,184,0,.12); color: var(--gold); }
 .sidebar-link.active-link { background: rgba(245,184,0,.15); color: var(--gold); font-weight: 600; }
 
-/* ================================================================
-   HERO / DASHBOARD HEADER
-================================================================ */
+/* HERO/ DashboRD HEADER */
 #home {
   background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-mid) 100%);
   padding: 3.5rem 0 3.5rem;
@@ -335,9 +315,7 @@ a { text-decoration: none; }
 }
 .btn-portal-outline:hover { border-color: var(--gold); color: var(--gold); }
 
-/* ================================================================
-   SECTION LAYOUT
-================================================================ */
+/* SECTION LAYOUT */
 section {
   padding: 3.5rem 0;
   position: relative;
@@ -373,9 +351,7 @@ section {
   margin-top: .8rem;
 }
 
-/* ================================================================
-   PORTAL CARDS
-================================================================ */
+/* PORTAL CARDS */
 .portal-card {
   background: var(--white);
   border: 1px solid var(--border);
@@ -418,9 +394,7 @@ section {
   border-radius: 0 0 var(--radius-lg) var(--radius-lg);
 }
 
-/* ================================================================
-   COMPONENTS SECTION
-================================================================ */
+/* COMPONENTS SECTION */
 #components { background: #EDF2FA; }
 .comp-block {
   background: var(--white);
@@ -721,9 +695,7 @@ section {
 .bar-blue { background: var(--blue-mid); }
 .bar-gold { background: var(--gold); }
 
-/* ================================================================
-   SCHEDULE SECTION (#schedule)
-================================================================ */
+/* #schedule */
 #schedule { background: var(--blue-pale); }
 .schedule-item {
   display: flex;
@@ -763,9 +735,7 @@ section {
 .badge-next    { background: var(--gold-light); color: #7A5800; }
 .badge-later   { background: var(--blue-light); color: var(--blue-mid); }
 
-/* ================================================================
-   ANNOUNCEMENTS
-================================================================ */
+/* FOR ANNOUNCEMENTS */
 #announcements { background: var(--white); overflow: visible; }
 .announce-item {
   padding: 1.1rem 0;
@@ -786,9 +756,7 @@ section {
 .announce-meta  { font-size: .73rem; color: var(--text-muted); margin-bottom: .3rem; }
 .announce-body  { font-size: .81rem; color: var(--text-mid); }
 
-/* ================================================================
-   EVENTS / ACTIVITIES
-================================================================ */
+/*EVENTS/ACTS */
 #activities { background: var(--blue-pale); overflow: visible; }
 .event-card {
   background: var(--white);
@@ -837,9 +805,7 @@ section {
 .tag-gold  { background: var(--gold-light); color: var(--gold-dark); }
 .tag-green { background: #E6F9F1; color: #1A8754; }
 
-/* ================================================================
-   CONTACT / SUPPORT
-================================================================ */
+/* CONTACT */
 #support { background: var(--white); padding-bottom: 5rem; }
 #support .portal-card { height: auto; }
 #support .dropdown-menu { z-index: 1060; }
@@ -870,9 +836,7 @@ section {
   background: var(--white);
 }
 
-/* ================================================================
-   FOOTER
-================================================================ */
+/* FOOTER */
 footer {
   background: var(--blue-dark);
   padding: 3rem 0 1.5rem;
@@ -916,9 +880,7 @@ footer {
 }
 .social-icon:hover { background: var(--gold); color: var(--blue-dark); border-color: var(--gold); }
 
-/* ================================================================
-   SCROLL FADE-IN
-================================================================ */
+/*SCROLL*/
 .fade-in {
   opacity: 0;
   transform: translateY(22px);
@@ -926,9 +888,6 @@ footer {
 }
 .fade-in.visible { opacity: 1; transform: none; }
 
-/* ================================================================
-   UTILITY
-================================================================ */
 .text-gold  { color: var(--gold-dark) !important; }
 .text-blue  { color: var(--blue-main) !important; }
 .bg-blue    { background: var(--blue-main) !important; }
