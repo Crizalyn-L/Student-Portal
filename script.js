@@ -6,9 +6,7 @@
  *          Form helpers, Leave modal confirmation
  */
 
-/* ================================================================
-   PRE-LOADER (#13)
-================================================================ */
+/* PRELOADER */
 window.addEventListener('load', () => {
   const preloader = document.getElementById('preloader');
   // Give loader bar time to fill, then hide
