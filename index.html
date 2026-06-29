@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="70">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Legend High — Student Portal</title>
+
+  <!-- Poppins + Playfair (Criteria #15) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ================================================================
+     PRE-LOADER (#13)
+================================================================ -->
+<div id="preloader">
+  <div class="loader-logo">
+    <div class="loader-shield">L</div>
+    <div class="loader-name">
+      Legend High
+      <span>Student Portal</span>
+    </div>
+  </div>
+  <div class="loader-bar-wrap">
+    <div class="loader-bar"></div>
+  </div>
+  <div class="loader-text">Loading your dashboard…</div>
+</div>
+
+<!-- ================================================================
+     TOAST CONTAINER (#11)
+================================================================ -->
+<div id="toastWrap">
+  <div id="toastWelcome" class="toast toast-lh" role="alert" data-bs-delay="5000">
+    <div class="toast-header">
+      <i class="bi bi-mortarboard-fill me-2"></i> Legend High Portal
+      <button type="button" class="btn-close ms-auto" data-bs-dismiss="toast"></button>
+    </div>
+    <div class="toast-body">
+      👋 Welcome back, <strong>Maria Santos!</strong> You have 2 new announcements.
+    </div>
+  </div>
+  <div id="toastSubmit" class="toast toast-lh" role="alert" data-bs-delay="3500">
+    <div class="toast-header" style="background:#1A8754 !important;">
+      <i class="bi bi-check-circle-fill me-2"></i> Submitted
+      <button type="button" class="btn-close ms-auto" data-bs-dismiss="toast"></button>
+    </div>
+    <div class="toast-body">✅ Your support request has been sent successfully.</div>
+  </div>
+</div>
+<div id="toastWrap2">
+  <div id="toastAlert2" class="toast toast-lh" role="alert" data-bs-delay="4000">
+    <div class="toast-header" style="background:#8A6000 !important;">
+      <i class="bi bi-exclamation-triangle-fill me-2"></i> Reminder
+      <button type="button" class="btn-close ms-auto" data-bs-dismiss="toast"></button>
+    </div>
+    <div class="toast-body">📚 Midterm exams begin <strong>March 20</strong>. Check your schedule!</div>
+  </div>
+</div>
+
+<!-- ================================================================
+     OFFCANVAS SIDEBAR (#7)
+================================================================ -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="sideMenu">
+  <div class="offcanvas-header">
+    <div class="d-flex align-items-center gap-2">
+      <div class="nav-shield">L</div>
+      <div>
+        <div style="color:#fff;font-weight:700;font-size:.9rem;">Legend High</div>
+        <div style="color:var(--gold);font-size:.66rem;letter-spacing:.08em;">STUDENT PORTAL</div>
+      </div>
+    </div>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="sidebar-student-card">
+      <div class="student-avatar">MS</div>
+      <div>
+        <div class="student-info-name">Maria Santos</div>
+        <div class="student-info-grade">Grade 11 — STEM · S.Y. 2025–2026</div>
+      </div>
+    </div>
+
+    <div class="sidebar-section-title">Navigation</div>
+    <a href="#home"          class="sidebar-link active-link" data-bs-dismiss="offcanvas"><i class="bi bi-house-fill"></i> Dashboard</a>
+    <a href="#grades"        class="sidebar-link" data-bs-dismiss="offcanvas"><i class="bi bi-bar-chart-fill"></i> Grades</a>
+    <a href="#schedule"      class="sidebar-link" data-bs-dismiss="offcanvas"><i class="bi bi-calendar3"></i> Schedule</a>
+    <a href="#announcements" class="sidebar-link" data-bs-dismiss="offcanvas"><i class="bi bi-megaphone-fill"></i> Announcements</a>
+    <a href="#activities"    class="sidebar-link" data-bs-dismiss="offcanvas"><i class="bi bi-trophy-fill"></i> Activities</a>
+    <a href="#components"    class="sidebar-link" data-bs-dismiss="offcanvas"><i class="bi bi-grid-3x3-gap"></i> Quick Tools</a>
+    <a href="#support"       class="sidebar-link" data-bs-dismiss="offcanvas"><i class="bi bi-headset"></i> Support</a>
+
+    <hr style="border-color:rgba(255,255,255,.1);margin:1rem 0;">
+    <div class="sidebar-section-title">Account</div>
+    <a href="#" class="sidebar-link" data-bs-toggle="modal" data-bs-target="#profileModal" data-bs-dismiss="offcanvas"><i class="bi bi-person-fill"></i> My Profile</a>
+    <a href="#" class="sidebar-link"><i class="bi bi-gear-fill"></i> Settings</a>
+    <a href="#" class="sidebar-link" style="color:rgba(255,100,100,.7);"><i class="bi bi-box-arrow-right"></i> Log Out</a>
+  </div>
+</div>
+
+<!-- ================================================================
+     NAVBAR (#9 Scrollspy anchor)
+================================================================ -->
+<nav class="navbar navbar-expand-lg" id="mainNav">
+  <div class="container">
+    <button class="btn p-0 me-3 d-lg-none" style="background:none;border:none;color:rgba(255,255,255,.7);font-size:1.2rem;"
+            data-bs-toggle="offcanvas" data-bs-target="#sideMenu">
+      <i class="bi bi-layout-sidebar-inset"></i>
+    </button>
+
+    <a class="navbar-brand nav-brand-wrap" href="#home">
+      <div class="nav-shield">L</div>
+      <div class="nav-school-name">
+        Legend High
+        <small>Student Portal</small>
+      </div>
+    </a>
+
+    <div class="d-flex align-items-center gap-2 ms-auto d-lg-none">
+      <div class="nav-notif">
+        <a href="#announcements" style="color:rgba(255,255,255,.7);font-size:1.1rem;"><i class="bi bi-bell-fill"></i></a>
+        <span class="nav-notif-dot"></span>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navLinks">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="#home">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="#grades">Grades</a></li>
+        <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
+        <li class="nav-item">
+          <a class="nav-link nav-notif" href="#announcements">
+            Announcements
+            <span class="nav-notif-dot d-none d-lg-block"></span>
+          </a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#activities">Activities</a></li>
+        <li class="nav-item"><a class="nav-link" href="#support">Support</a></li>
+
+        <!-- Dropdown (#5) in navbar -->
+        <li class="nav-item dropdown ms-lg-2">
+          <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" data-bs-toggle="dropdown">
+            <div style="width:28px;height:28px;background:var(--gold);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:var(--blue-dark);">MS</div>
+            <span class="d-none d-lg-inline" style="font-size:.8rem;">Maria S.</span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lh">
+            <li>
+              <div style="padding:.6rem .85rem 0;font-size:.78rem;">
+                <strong style="color:var(--blue-dark);">Maria Santos</strong>
+                <div style="font-size:.7rem;color:var(--text-muted);">Grade 11 — STEM</div>
+              </div>
+            </li>
+            <li><hr class="dropdown-divider dropdown-divider-lh"></li>
+            <li><a class="dropdown-item dropdown-item-lh" href="#" data-bs-toggle="modal" data-bs-target="#profileModal">
+              <i class="bi bi-person"></i> My Profile
+            </a></li>
+            <li><a class="dropdown-item dropdown-item-lh" href="#">
+              <i class="bi bi-file-earmark-text"></i> Transcript
+            </a></li>
+            <li><a class="dropdown-item dropdown-item-lh" href="#">
+              <i class="bi bi-gear"></i> Settings
+            </a></li>
+            <li><hr class="dropdown-divider dropdown-divider-lh"></li>
+            <li><a class="dropdown-item dropdown-item-lh" href="#" style="color:#C0392B;">
+              <i class="bi bi-box-arrow-right" style="color:#C0392B;"></i> Log Out
+            </a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ================================================================
+     HERO / DASHBOARD (#home — Scrollspy)
+================================================================ -->
+<section id="home">
+  <div class="container position-relative" style="z-index:1;">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <div class="hero-greeting fade-in">Good Morning ☀️</div>
+        <h1 class="hero-name fade-in" style="transition-delay:.1s">Welcome back,<br>Maria Santos.</h1>
+        <p class="hero-sub fade-in" style="transition-delay:.2s">
+          Grade 11 — STEM Track &nbsp;·&nbsp; S.Y. 2025–2026 &nbsp;·&nbsp; Section: Einstein
+        </p>
+        <div class="d-flex flex-wrap gap-2 mb-3 fade-in" style="transition-delay:.25s">
+          <span class="info-chip"><i class="bi bi-calendar-check"></i> 3rd Quarter</span>
+          <span class="info-chip gold"><i class="bi bi-trophy"></i> Honor Roll</span>
+          <span class="info-chip"><i class="bi bi-geo-alt"></i> Room 204</span>
+        </div>
+        <div class="d-flex gap-2 flex-wrap fade-in" style="transition-delay:.3s">
+          <button class="btn btn-portal" data-bs-toggle="modal" data-bs-target="#profileModal">
+            <i class="bi bi-person-circle me-1"></i> View Profile
+          </button>
+          <button class="btn btn-portal-outline" data-bs-toggle="offcanvas" data-bs-target="#sideMenu">
+            <i class="bi bi-list me-1"></i> Quick Menu
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-5 fade-in" style="transition-delay:.35s">
+        <div class="row g-2">
+          <div class="col-6"><div class="hero-stat"><div class="hero-stat-num">87.4</div><div class="hero-stat-label">General Average</div></div></div>
+          <div class="col-6"><div class="hero-stat"><div class="hero-stat-num">96%</div><div class="hero-stat-label">Attendance Rate</div></div></div>
+          <div class="col-6"><div class="hero-stat"><div class="hero-stat-num">8</div><div class="hero-stat-label">Subjects Enrolled</div></div></div>
+          <div class="col-6"><div class="hero-stat"><div class="hero-stat-num">2</div><div class="hero-stat-label">New Notices</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     GRADES SECTION (#grades — Scrollspy)
+================================================================ -->
+<section id="grades">
+  <div class="container">
+    <div class="row g-4 align-items-start">
+      <!-- Grades card -->
+      <div class="col-lg-8 fade-in">
+        <div class="portal-card">
+          <div class="card-head">
+            <div class="d-flex align-items-center gap-2">
+              <div class="card-icon blue"><i class="bi bi-bar-chart-line-fill"></i></div>
+              <span class="card-head-title">3rd Quarter Grades</span>
+            </div>
+            <span class="info-chip"><i class="bi bi-calendar3"></i> Q3 · 2025–26</span>
+          </div>
+
+          <!-- TAB (#10) -->
+          <div class="card-body-p">
+            <ul class="nav nav-tabs-lh mb-0" id="gradeTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-core">Core Subjects</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-applied">Applied Track</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-pe">PE & Values</button>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <div class="tab-pane fade show active tab-pane-lh" id="tab-core">
+                <div class="grade-row">
+                  <span class="grade-subject">English Language & Literature</span>
+                  <span class="grade-teacher">Mr. Reyes</span>
+                  <div class="progress-thin"><div class="progress-thin-bar bar-blue" style="width:92%"></div></div>
+                  <div class="grade-score grade-a">92</div>
+                </div>
+                <div class="grade-row">
+                  <span class="grade-subject">Filipino</span>
+                  <span class="grade-teacher">Ms. Cruz</span>
+                  <div class="progress-thin"><div class="progress-thin-bar bar-gold" style="width:88%"></div></div>
+                  <div class="grade-score grade-a">88</div>
+                </div>
+                <div class="grade-row">
+                  <span class="grade-subject">Mathematics (Pre-Calculus)</span>
+                  <span class="grade-teacher">Mr. Dela Torre</span>
+                  <div class="progress-thin"><div class="progress-thin-bar bar-blue" style="width:85%"></div></div>
+                  <div class="grade-score grade-b">85</div>
+                </div>
+                <div class="grade-row">
+                  <span class="grade-subject">Earth Science</span>
+                  <span class="grade-teacher">Ms. Bautista</span>
+                  <div class="progress-thin"><div class="progress-thin-bar bar-gold" style="width:90%"></div></div>
+                  <div class="grade-score grade-a">90</div>
+                </div>
+              </div>
+              <div class="tab-pane fade tab-pane-lh" id="tab-applied">
+                <div class="grade-row">
+                  <span class="grade-subject">General Chemistry 1</span>
+                  <span class="grade-teacher">Dr. Navarro</span>
+                  <div class="progress-thin"><div class="progress-thin-bar bar-blue" style="width:83%"></div></div>
+                  <div class="grade-score grade-b">83</div>
+                </div>
+                <div class="grade-row">
+                  <span class="grade-subject">Computer Programming</span>
+                  <span class="grade-teacher">Mr. Lim</span>
+                  <div class="progress-thin"><div class="progress-thin-bar bar-gold" style="width:95%"></div></div>
+                  <div class="grade-score grade-a">95</div>
+                </div>
+                <div class="grade-row">
+                  <span class="grade-subject">Statistics & Probability</span>
+                  <span class="grade-teacher">Ms. Gonzales</span>
+                  <div class="progress-thin"><div class="progress-thin-bar bar-blue" style="width:87%"></div></div>
+                  <div class="grade-score grade-a">87</div>
+                </div>
+              </div>
+              <div class="tab-pane fade tab-pane-lh" id="tab-pe">
+                <div class="grade-row">
+                  <span class="grade-subject">Physical Education</span>
+                  <span class="grade-teacher">Coach Mendoza</span>
+                  <div class="progress-thin"><div class="progress-thin-bar bar-gold" style="width:93%"></div></div>
+                  <div class="grade-score grade-a">93</div>
+                </div>
+                <div class="grade-row">
+                  <span class="grade-subject">Personal Development</span>
+                  <span class="grade-teacher">Ms. Villanueva</span>
+                  <div class="progress-thin"><div class="progress-thin-bar bar-blue" style="width:91%"></div></div>
+                  <div class="grade-score grade-a">91</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick alerts panel -->
+      <div class="col-lg-4 fade-in" style="transition-delay:.1s">
+        <div class="portal-card" style="height:auto;">
+          <div class="card-head">
+            <div class="d-flex align-items-center gap-2">
+              <div class="card-icon gold"><i class="bi bi-bell-fill"></i></div>
+              <span class="card-head-title">Notifications</span>
+            </div>
+          </div>
+          <div class="card-body-p d-flex flex-column gap-2">
+
+            <!-- ALERT (#1) -->
+            <div class="alert lh-alert lh-alert-warning alert-dismissible fade show" role="alert">
+              <i class="bi bi-clock me-2"></i>
+              <strong>Enrollment</strong> for Q4 opens March 22.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" style="filter:brightness(0.5);"></button>
+            </div>
+            <div class="alert lh-alert lh-alert-info alert-dismissible fade show" role="alert">
+              <i class="bi bi-info-circle me-2"></i>
+              New reading materials uploaded in English.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" style="filter:brightness(0.5);"></button>
+            </div>
+            <div class="alert lh-alert lh-alert-success alert-dismissible fade show" role="alert">
+              <i class="bi bi-check-circle me-2"></i>
+              <strong>Clearance</strong> approved for Q3.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" style="filter:brightness(0.5);"></button>
+            </div>
+            <div class="alert lh-alert lh-alert-danger alert-dismissible fade show" role="alert">
+              <i class="bi bi-exclamation-circle me-2"></i>
+              <strong>Requirement due</strong> March 18 in Filipino.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" style="filter:brightness(0.5);"></button>
+            </div>
+
+            <div class="mt-auto pt-2">
+              <button class="btn btn-lh-primary w-100 btn-sm" id="btnShowToasts">
+                <i class="bi bi-bell me-1"></i> Show Notifications
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     SCHEDULE SECTION (#schedule — Scrollspy)
+================================================================ -->
+<section id="schedule">
+  <div class="container">
+    <div class="row g-4 align-items-start">
+      <div class="col-lg-7 fade-in">
+        <div class="section-header">
+          <div class="section-eyebrow">This Week</div>
+          <h2 class="section-title">Class <span>Schedule</span></h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <!-- CAROUSEL (#3) -->
+        <div id="schedCarousel" class="carousel slide lh-carousel mb-4" data-bs-ride="carousel" data-bs-interval="4000">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#schedCarousel" data-bs-slide-to="0" class="active" style="background:var(--blue-main);border-radius:4px;width:20px;height:4px;"></button>
+            <button type="button" data-bs-target="#schedCarousel" data-bs-slide-to="1" style="background:var(--blue-main);border-radius:4px;width:20px;height:4px;"></button>
+            <button type="button" data-bs-target="#schedCarousel" data-bs-slide-to="2" style="background:var(--blue-main);border-radius:4px;width:20px;height:4px;"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="carousel-slide-inner slide-blue">
+                <i class="bi bi-trophy-fill" style="font-size:1.8rem;margin-bottom:.5rem;color:var(--gold);"></i>
+                <h6>3rd Quarter Exams — March 20–22</h6>
+                <p>Study hard! Check subject reviewers posted on the portal.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="carousel-slide-inner slide-gold">
+                <i class="bi bi-calendar-event-fill" style="font-size:1.8rem;margin-bottom:.5rem;"></i>
+                <h6>Science Fair — March 28</h6>
+                <p>STEM track students must submit project abstracts by March 19.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="carousel-slide-inner slide-mixed">
+                <i class="bi bi-mortarboard-fill" style="font-size:1.8rem;margin-bottom:.5rem;color:var(--gold);"></i>
+                <h6>Graduation Practice — April 5</h6>
+                <p>Mandatory attendance for all Grade 12 students. Venue: Main Gym.</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#schedCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#schedCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+
+        <!-- Daily schedule -->
+        <div class="schedule-item">
+          <div class="schedule-time"><span class="day">Mon</span>7:30<br>8:30</div>
+          <div class="schedule-info">
+            <div class="schedule-subject">English Language & Literature</div>
+            <div class="schedule-room"><i class="bi bi-door-open me-1"></i>Room 204 &nbsp;·&nbsp; Mr. Reyes</div>
+            <span class="schedule-badge badge-ongoing">Ongoing</span>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time"><span class="day">Mon</span>8:30<br>9:30</div>
+          <div class="schedule-info">
+            <div class="schedule-subject">General Chemistry 1</div>
+            <div class="schedule-room"><i class="bi bi-door-open me-1"></i>Science Lab 2 &nbsp;·&nbsp; Dr. Navarro</div>
+            <span class="schedule-badge badge-next">Next</span>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time"><span class="day">Mon</span>9:30<br>10:30</div>
+          <div class="schedule-info">
+            <div class="schedule-subject">Pre-Calculus</div>
+            <div class="schedule-room"><i class="bi bi-door-open me-1"></i>Room 206 &nbsp;·&nbsp; Mr. Dela Torre</div>
+            <span class="schedule-badge badge-later">Later</span>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time"><span class="day">Mon</span>10:45<br>11:45</div>
+          <div class="schedule-info">
+            <div class="schedule-subject">Computer Programming</div>
+            <div class="schedule-room"><i class="bi bi-door-open me-1"></i>ICT Lab 1 &nbsp;·&nbsp; Mr. Lim</div>
+            <span class="schedule-badge badge-later">Later</span>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time"><span class="day">Mon</span>12:00<br>1:00</div>
+          <div class="schedule-info">
+            <div class="schedule-subject">Lunch Break</div>
+            <div class="schedule-room"><i class="bi bi-cup-hot me-1"></i>Cafeteria</div>
+            <span class="schedule-badge badge-later" style="background:#f5f5f5;color:#888;">Break</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- COLLAPSE FAQ + Popover/Tooltip panel -->
+      <div class="col-lg-5 fade-in" style="transition-delay:.15s">
+        <div class="section-header">
+          <div class="section-eyebrow">Quick Info</div>
+          <h2 class="section-title">Student <span>Resources</span></h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <!-- COLLAPSE (#4) -->
+        <div class="comp-block mb-3">
+          <div class="comp-label"><i class="bi bi-question-circle-fill"></i> Frequently Asked Questions</div>
+
+          <button class="lh-collapse-btn mb-1" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true">
+            How do I request a certificate of enrollment?
+            <i class="bi bi-chevron-down" style="font-size:.75rem;"></i>
+          </button>
+          <div class="collapse show" id="faq1">
+            <div class="lh-collapse-body mb-2">
+              Go to the Registrar's Office (Rm 102) with your student ID. Processing takes 3–5 working days. You may also email registrar@legendhigh.edu.ph.
+            </div>
+          </div>
+
+          <button class="lh-collapse-btn mb-1" data-bs-toggle="collapse" data-bs-target="#faq2">
+            When is the exam permit released?
+            <i class="bi bi-chevron-down" style="font-size:.75rem;"></i>
+          </button>
+          <div class="collapse" id="faq2">
+            <div class="lh-collapse-body mb-2">
+              Exam permits are released 1 week before the examination period, provided all fees are settled and clearance is approved.
+            </div>
+          </div>
+
+          <button class="lh-collapse-btn mb-1" data-bs-toggle="collapse" data-bs-target="#faq3">
+            How do I appeal a grade?
+            <i class="bi bi-chevron-down" style="font-size:.75rem;"></i>
+          </button>
+          <div class="collapse" id="faq3">
+            <div class="lh-collapse-body">
+              Submit a Grade Appeal Form (available at the Guidance Office) within 5 days of card distribution. Attach relevant proof and supporting documents.
+            </div>
+          </div>
+        </div>
+
+        <!-- POPOVER + TOOLTIP panel -->
+        <div class="comp-block">
+          <div class="comp-label"><i class="bi bi-info-circle-fill"></i> Helpful Tips</div>
+          <p style="font-size:.78rem;color:var(--text-muted);margin-bottom:.9rem;">
+            Hover or click the buttons below for quick guidance.
+          </p>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <!-- POPOVER (#8) -->
+            <button class="btn btn-lh-outline btn-sm"
+                    data-bs-toggle="popover"
+                    data-bs-placement="top"
+                    data-bs-title="📋 Enrollment Requirements"
+                    data-bs-content="Bring your report card, parent/guardian ID, and 2 pcs 1×1 photos to complete enrollment.">
+              <i class="bi bi-clipboard me-1"></i> Enrollment
+            </button>
+            <button class="btn btn-lh-primary btn-sm"
+                    data-bs-toggle="popover"
+                    data-bs-placement="top"
+                    data-bs-title="📅 School Calendar"
+                    data-bs-content="Q3 ends April 4. Long vacation begins April 7. Q4 enrollment opens March 22.">
+              <i class="bi bi-calendar3 me-1"></i> Calendar
+            </button>
+            <button class="btn btn-lh-gold btn-sm"
+                    data-bs-toggle="popover"
+                    data-bs-placement="bottom"
+                    data-bs-title="🏆 Scholarship Info"
+                    data-bs-content="Maintain a GWA of 90+ and zero absences to qualify for the Legend Excellence Scholarship.">
+              <i class="bi bi-award me-1"></i> Scholarship
+            </button>
+          </div>
+
+          <div class="comp-label mt-3"><i class="bi bi-cursor-fill"></i> Quick Actions</div>
+          <div class="d-flex flex-wrap gap-2">
+            <!-- TOOLTIP (#12) -->
+            <button class="btn btn-lh-ghost btn-sm"
+                    data-bs-toggle="tooltip" data-bs-placement="top"
+                    title="Download your official grade report as PDF">
+              <i class="bi bi-download me-1"></i> Grade Report
+            </button>
+            <button class="btn btn-lh-ghost btn-sm"
+                    data-bs-toggle="tooltip" data-bs-placement="top"
+                    title="View and print your class schedule">
+              <i class="bi bi-printer me-1"></i> Print Schedule
+            </button>
+            <button class="btn btn-lh-ghost btn-sm"
+                    data-bs-toggle="tooltip" data-bs-placement="top"
+                    title="Submit an absence notice to your adviser">
+              <i class="bi bi-envelope me-1"></i> Absence Notice
+            </button>
+            <button class="btn btn-lh-ghost btn-sm"
+                    data-bs-toggle="tooltip" data-bs-placement="bottom"
+                    title="Access your Learning Management System">
+              <i class="bi bi-book me-1"></i> e-Learning
+            </button>
+          </div>
+
+          <!-- DROPDOWN (#5) additional -->
+          <div class="mt-3">
+            <div class="comp-label"><i class="bi bi-folder-fill"></i> Documents</div>
+            <div class="d-flex gap-2 flex-wrap">
+              <div class="dropdown">
+                <button class="btn btn-lh-outline btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+                  <i class="bi bi-file-earmark-text me-1"></i> Certificates
+                </button>
+                <ul class="dropdown-menu dropdown-menu-lh">
+                  <li><a class="dropdown-item dropdown-item-lh" href="#"><i class="bi bi-file-earmark-check"></i> Certificate of Enrollment</a></li>
+                  <li><a class="dropdown-item dropdown-item-lh" href="#"><i class="bi bi-file-earmark-person"></i> Good Moral Certificate</a></li>
+                  <li><a class="dropdown-item dropdown-item-lh" href="#"><i class="bi bi-file-earmark-bar-graph"></i> Official Transcript</a></li>
+                  <li><hr class="dropdown-divider dropdown-divider-lh"></li>
+                  <li><a class="dropdown-item dropdown-item-lh" href="#"><i class="bi bi-envelope-paper"></i> Request Form</a></li>
+                </ul>
+              </div>
+              <div class="dropdown">
+                <button class="btn btn-lh-ghost btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+                  <i class="bi bi-download me-1"></i> Downloads
+                </button>
+                <ul class="dropdown-menu dropdown-menu-lh">
+                  <li><a class="dropdown-item dropdown-item-lh" href="#"><i class="bi bi-calendar3"></i> School Calendar PDF</a></li>
+                  <li><a class="dropdown-item dropdown-item-lh" href="#"><i class="bi bi-book"></i> Student Handbook</a></li>
+                  <li><a class="dropdown-item dropdown-item-lh" href="#"><i class="bi bi-clipboard-check"></i> Clearance Form</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     ANNOUNCEMENTS (#announcements — Scrollspy)
+================================================================ -->
+<section id="announcements">
+  <div class="container">
+    <div class="row g-4 align-items-start">
+      <div class="col-lg-7 fade-in">
+        <div class="section-header">
+          <div class="section-eyebrow">Latest Updates</div>
+          <h2 class="section-title">School <span>Announcements</span></h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="portal-card">
+          <div class="card-body-p">
+            <div class="announce-item">
+              <div class="announce-dot dot-red" style="margin-top:.45rem;"></div>
+              <div>
+                <div class="announce-title">📢 3rd Quarter Examination Schedule</div>
+                <div class="announce-meta"><i class="bi bi-calendar me-1"></i>March 14, 2026 &nbsp;·&nbsp; Admin Office</div>
+                <div class="announce-body">Examinations will be held from March 20–22. All students must present their exam permits. Late submissions of requirements will not be accepted after March 18.</div>
+              </div>
+            </div>
+            <div class="announce-item">
+              <div class="announce-dot dot-gold" style="margin-top:.45rem;"></div>
+              <div>
+                <div class="announce-title">🏅 Science Fair 2026 — Call for Participants</div>
+                <div class="announce-meta"><i class="bi bi-calendar me-1"></i>March 10, 2026 &nbsp;·&nbsp; STEM Department</div>
+                <div class="announce-body">STEM students are invited to join the annual Science Fair. Submit project abstracts to Ms. Bautista by March 19. Prizes include certificates and academic incentives.</div>
+              </div>
+            </div>
+            <div class="announce-item">
+              <div class="announce-dot dot-blue" style="margin-top:.45rem;"></div>
+              <div>
+                <div class="announce-title">📚 Library Extended Hours</div>
+                <div class="announce-meta"><i class="bi bi-calendar me-1"></i>March 8, 2026 &nbsp;·&nbsp; Library</div>
+                <div class="announce-body">The school library will be open until 6:00 PM on weekdays starting March 15 to support students preparing for quarterly examinations.</div>
+              </div>
+            </div>
+            <div class="announce-item" style="padding-bottom:0;">
+              <div class="announce-dot dot-gold" style="margin-top:.45rem;"></div>
+              <div>
+                <div class="announce-title">🎓 4th Quarter Enrollment Schedule</div>
+                <div class="announce-meta"><i class="bi bi-calendar me-1"></i>March 5, 2026 &nbsp;·&nbsp; Registrar's Office</div>
+                <div class="announce-body">Enrollment for Q4 will open March 22 for Grade 11 and 12 students. Ensure all clearances are signed before proceeding to the cashier.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5 fade-in" style="transition-delay:.1s">
+        <div class="portal-card">
+          <div class="card-head">
+            <div>
+              <div class="section-eyebrow" style="margin-bottom:.3rem;">Quick Contact</div>
+              <span class="card-head-title" style="font-size:.95rem;letter-spacing:0;font-family:'Playfair Display',serif;font-weight:800;color:var(--blue-dark);text-transform:none;">Contact <span style="color:var(--gold-dark);">Offices</span></span>
+            </div>
+            <div class="card-icon blue"><i class="bi bi-telephone-fill"></i></div>
+          </div>
+          <div class="card-body-p d-flex flex-column gap-2">
+            <div style="background:var(--blue-pale);border:1px solid var(--border);border-radius:var(--radius-sm);padding:.85rem 1rem;display:flex;align-items:center;gap:.8rem;">
+              <div class="card-icon blue" style="flex-shrink:0;"><i class="bi bi-person-badge-fill"></i></div>
+              <div>
+                <div style="font-weight:700;font-size:.82rem;color:var(--blue-dark);">Principal's Office</div>
+                <div style="font-size:.74rem;color:var(--text-muted);">Room 101 · principal@legendhigh.edu.ph</div>
+              </div>
+            </div>
+            <div style="background:var(--blue-pale);border:1px solid var(--border);border-radius:var(--radius-sm);padding:.85rem 1rem;display:flex;align-items:center;gap:.8rem;">
+              <div class="card-icon gold" style="flex-shrink:0;"><i class="bi bi-people-fill"></i></div>
+              <div>
+                <div style="font-weight:700;font-size:.82rem;color:var(--blue-dark);">Guidance Office</div>
+                <div style="font-size:.74rem;color:var(--text-muted);">Room 103 · guidance@legendhigh.edu.ph</div>
+              </div>
+            </div>
+            <div style="background:var(--blue-pale);border:1px solid var(--border);border-radius:var(--radius-sm);padding:.85rem 1rem;display:flex;align-items:center;gap:.8rem;">
+              <div class="card-icon green" style="flex-shrink:0;"><i class="bi bi-book-fill"></i></div>
+              <div>
+                <div style="font-weight:700;font-size:.82rem;color:var(--blue-dark);">Registrar's Office</div>
+                <div style="font-size:.74rem;color:var(--text-muted);">Room 102 · registrar@legendhigh.edu.ph</div>
+              </div>
+            </div>
+            <div style="background:var(--blue-pale);border:1px solid var(--border);border-radius:var(--radius-sm);padding:.85rem 1rem;display:flex;align-items:center;gap:.8rem;">
+              <div class="card-icon red" style="flex-shrink:0;"><i class="bi bi-heart-pulse-fill"></i></div>
+              <div>
+                <div style="font-weight:700;font-size:.82rem;color:var(--blue-dark);">Clinic / Health Office</div>
+                <div style="font-size:.74rem;color:var(--text-muted);">Room 104 · clinic@legendhigh.edu.ph</div>
+              </div>
+            </div>
+            <button class="btn btn-lh-primary mt-1" data-bs-toggle="modal" data-bs-target="#leaveModal">
+              <i class="bi bi-envelope-fill me-1"></i> File Leave of Absence
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     ACTIVITIES (#activities — Scrollspy)
+================================================================ -->
+<section id="activities">
+  <div class="container">
+    <div class="section-header text-center fade-in" style="margin-bottom:1.8rem;">
+      <div class="section-eyebrow">Campus Life</div>
+      <h2 class="section-title">Upcoming <span>Events & Activities</span></h2>
+      <div class="section-divider mx-auto"></div>
+    </div>
+    <div class="row g-3 align-items-stretch">
+      <div class="col-md-4 fade-in">
+        <div class="event-card">
+          <div class="event-card-header">
+            <div class="event-date-box"><span class="month">Mar</span><span class="day">20</span></div>
+            <div>
+              <div class="event-card-title">3rd Quarter Examinations</div>
+              <div class="event-card-detail"><i class="bi bi-clock me-1"></i>7:30 AM – 12:00 PM &nbsp;·&nbsp; All Rooms</div>
+            </div>
+          </div>
+          <div class="event-card-footer">
+            <span class="event-tag tag-blue"><i class="bi bi-pencil me-1"></i>Academics</span>
+            <button class="btn btn-lh-primary btn-sm" data-bs-toggle="tooltip" title="View exam permit">Details</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 fade-in" style="transition-delay:.1s">
+        <div class="event-card">
+          <div class="event-card-header">
+            <div class="event-date-box"><span class="month">Mar</span><span class="day">28</span></div>
+            <div>
+              <div class="event-card-title">Annual Science Fair 2026</div>
+              <div class="event-card-detail"><i class="bi bi-clock me-1"></i>8:00 AM &nbsp;·&nbsp; Gymnasium</div>
+            </div>
+          </div>
+          <div class="event-card-footer">
+            <span class="event-tag tag-gold"><i class="bi bi-flask me-1"></i>STEM</span>
+            <button class="btn btn-lh-gold btn-sm" data-bs-toggle="tooltip" title="Register your project">Register</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 fade-in" style="transition-delay:.2s">
+        <div class="event-card">
+          <div class="event-card-header">
+            <div class="event-date-box"><span class="month">Apr</span><span class="day">5</span></div>
+            <div>
+              <div class="event-card-title">Graduation Rehearsal</div>
+              <div class="event-card-detail"><i class="bi bi-clock me-1"></i>9:00 AM &nbsp;·&nbsp; Main Gym</div>
+            </div>
+          </div>
+          <div class="event-card-footer">
+            <span class="event-tag tag-green"><i class="bi bi-mortarboard me-1"></i>Grade 12</span>
+            <button class="btn btn-lh-ghost btn-sm" data-bs-toggle="tooltip" title="Mandatory attendance required">Info</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     SUPPORT SECTION (#support — Scrollspy)
+================================================================ -->
+<section id="support">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 fade-in">
+        <div class="section-header text-center">
+          <div class="section-eyebrow">Need Help?</div>
+          <h2 class="section-title">Student <span>Support</span></h2>
+          <div class="section-divider mx-auto"></div>
+          <p style="font-size:.87rem;color:var(--text-muted);margin-top:.5rem;">
+            Send a message to our support team and we'll get back to you within 24 hours.
+          </p>
+        </div>
+        <div class="portal-card">
+          <div class="card-body-p">
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label class="form-lh-label">First Name</label>
+                <input type="text" class="form-lh-control" placeholder="Maria" value="Maria">
+              </div>
+              <div class="col-sm-6">
+                <label class="form-lh-label">Last Name</label>
+                <input type="text" class="form-lh-control" placeholder="Santos" value="Santos">
+              </div>
+              <div class="col-sm-6">
+                <label class="form-lh-label">Student ID</label>
+                <input type="text" class="form-lh-control" placeholder="LH-2025-0042" value="LH-2025-0042">
+              </div>
+              <div class="col-sm-6">
+                <label class="form-lh-label">Grade & Section</label>
+                <input type="text" class="form-lh-control" placeholder="Grade 11 – Einstein" value="Grade 11 – Einstein">
+              </div>
+              <div class="col-12">
+                <label class="form-lh-label">Concern Type</label>
+                <div class="dropdown">
+                  <button class="form-lh-control d-flex justify-content-between align-items-center btn" 
+                          data-bs-toggle="dropdown" style="cursor:pointer;text-align:left;">
+                    <span id="concernText" style="color:var(--text-muted);">Select a concern…</span>
+                    <i class="bi bi-chevron-down" style="font-size:.75rem;"></i>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-lh w-100">
+                    <li><a class="dropdown-item dropdown-item-lh" href="#" onclick="setConcern(this)"><i class="bi bi-bar-chart"></i> Grade Inquiry</a></li>
+                    <li><a class="dropdown-item dropdown-item-lh" href="#" onclick="setConcern(this)"><i class="bi bi-file-earmark-text"></i> Document Request</a></li>
+                    <li><a class="dropdown-item dropdown-item-lh" href="#" onclick="setConcern(this)"><i class="bi bi-calendar3"></i> Schedule Conflict</a></li>
+                    <li><a class="dropdown-item dropdown-item-lh" href="#" onclick="setConcern(this)"><i class="bi bi-cash"></i> Finance / Tuition</a></li>
+                    <li><a class="dropdown-item dropdown-item-lh" href="#" onclick="setConcern(this)"><i class="bi bi-chat-dots"></i> Other Concern</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12">
+                <label class="form-lh-label">Message</label>
+                <textarea class="form-lh-control" rows="4" placeholder="Describe your concern in detail…"></textarea>
+              </div>
+              <div class="col-12 d-flex gap-2 flex-wrap">
+                <button class="btn btn-lh-primary flex-fill" id="btnSendSupport">
+                  <i class="bi bi-send-fill me-1"></i> Send Message
+                </button>
+                <button class="btn btn-lh-ghost" onclick="this.closest('form') && this.closest('form').reset()">
+                  <i class="bi bi-x-circle me-1"></i> Clear
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FOOTER
+================================================================ -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="d-flex align-items-center gap-2 mb-2">
+          <div class="loader-shield" style="width:38px;height:38px;font-size:.9rem;">L</div>
+          <div>
+            <div class="footer-brand-name">Legend High School</div>
+            <div class="footer-brand-sub">STUDENT PORTAL · S.Y. 2025–2026</div>
+          </div>
+        </div>
+        <p style="font-size:.78rem;color:rgba(255,255,255,.5);max-width:280px;margin-top:.8rem;line-height:1.7;">
+          Empowering students to reach their full potential through excellence in academics, character, and service.
+        </p>
+        <div class="d-flex gap-1 mt-2">
+          <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-envelope-fill"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-telephone-fill"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2 offset-lg-1">
+        <div class="footer-col-title">Quick Links</div>
+        <a href="#home" class="footer-link">Dashboard</a>
+        <a href="#grades" class="footer-link">My Grades</a>
+        <a href="#schedule" class="footer-link">Schedule</a>
+        <a href="#announcements" class="footer-link">Announcements</a>
+        <a href="#activities" class="footer-link">Activities</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-col-title">Offices</div>
+        <a href="#" class="footer-link">Registrar</a>
+        <a href="#" class="footer-link">Guidance</a>
+        <a href="#" class="footer-link">Finance</a>
+        <a href="#" class="footer-link">Clinic</a>
+        <a href="#support" class="footer-link">Support</a>
+      </div>
+      <div class="col-12 col-lg-3">
+        <div class="footer-col-title">School Hours</div>
+        <div style="font-size:.78rem;color:rgba(255,255,255,.55);line-height:2;">
+          <div><span style="color:var(--gold);font-weight:600;">Mon – Fri</span> &nbsp;7:00 AM – 5:00 PM</div>
+          <div><span style="color:var(--gold);font-weight:600;">Saturday</span> &nbsp;8:00 AM – 12:00 PM</div>
+          <div><span style="color:rgba(255,255,255,.3);">Sunday</span> &nbsp;Closed</div>
+        </div>
+        <div style="font-size:.75rem;color:rgba(255,255,255,.4);margin-top:.8rem;">
+          📍 123 Legend Ave., San Isidro<br>
+          📞 (02) 8123-4567<br>
+          ✉️ info@legendhigh.edu.ph
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <div class="footer-bottom">© 2026 Legend High School. All rights reserved.</div>
+      <div class="footer-bottom">Privacy Policy &nbsp;·&nbsp; Terms of Use &nbsp;·&nbsp; Accessibility</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ================================================================
+     MODAL — Profile (#6)
+================================================================ -->
+<div class="modal fade modal-content-lh" id="profileModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><i class="bi bi-person-circle me-2"></i>Student Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <div style="width:72px;height:72px;background:var(--blue-main);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800;color:var(--gold);">MS</div>
+          </div>
+          <div class="col">
+            <h5 style="color:var(--blue-dark);font-weight:800;margin-bottom:.2rem;">Maria Angela Santos</h5>
+            <div style="font-size:.82rem;color:var(--text-muted);">LH-2025-0042 &nbsp;·&nbsp; Grade 11 — STEM &nbsp;·&nbsp; Section Einstein</div>
+            <span class="info-chip gold mt-1"><i class="bi bi-trophy-fill"></i> Honor Roll — 3rd Quarter</span>
+          </div>
+        </div>
+        <hr style="border-color:var(--border);">
+        <div class="row g-2" style="font-size:.84rem;">
+          <div class="col-sm-6"><span style="color:var(--text-muted);">Date of Birth:</span> <strong>April 12, 2009</strong></div>
+          <div class="col-sm-6"><span style="color:var(--text-muted);">Age:</span> <strong>16</strong></div>
+          <div class="col-sm-6"><span style="color:var(--text-muted);">Gender:</span> <strong>Female</strong></div>
+          <div class="col-sm-6"><span style="color:var(--text-muted);">Nationality:</span> <strong>Filipino</strong></div>
+          <div class="col-sm-6"><span style="color:var(--text-muted);">Adviser:</span> <strong>Mr. Reyes</strong></div>
+          <div class="col-sm-6"><span style="color:var(--text-muted);">General Average:</span> <strong style="color:var(--blue-main);">87.40</strong></div>
+          <div class="col-sm-6"><span style="color:var(--text-muted);">Attendance:</span> <strong style="color:#1A8754;">96%</strong></div>
+          <div class="col-sm-6"><span style="color:var(--text-muted);">Absences:</span> <strong>3 days</strong></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-lh-ghost btn-sm" data-bs-dismiss="modal">Close</button>
+        <button class="btn btn-lh-primary btn-sm">
+          <i class="bi bi-download me-1"></i> Download Profile
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL — Leave of Absence (#6) -->
+<div class="modal fade modal-content-lh" id="leaveModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><i class="bi bi-calendar-x me-2"></i>File Leave of Absence</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:.83rem;color:var(--text-muted);margin-bottom:1rem;">
+          Complete this form to notify your adviser of your absence. Submissions must be made at least 1 day in advance.
+        </p>
+        <div class="d-flex flex-column gap-2">
+          <div>
+            <label class="form-lh-label">Date(s) of Absence</label>
+            <input type="date" class="form-lh-control">
+          </div>
+          <div>
+            <label class="form-lh-label">Reason</label>
+            <textarea class="form-lh-control" rows="3" placeholder="Briefly explain the reason…"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-lh-ghost btn-sm" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-lh-primary btn-sm" id="btnSubmitLeave" data-bs-dismiss="modal">
+          <i class="bi bi-send me-1"></i> Submit Request
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom JS -->
+<script src="script.js"></script>
+</body>
+</html>
